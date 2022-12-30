@@ -1,0 +1,73 @@
+html,
+body,
+#root {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.App {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	transition: background 0.8s ease;
+}
+[data-color-scheme="dark"] .App {
+	background: #333;
+	color: white;
+}
+
+.App > main {
+	/* TODO: make the canvas area be the overflow area instead */
+	/* make the color and tool palettes compact enough to be on the screen at all times on mobile by collapsing */
+	overflow: auto;
+	flex: 1;
+	/*display: flex;*/
+	/*flex-direction: column;*/
+}
+
+.sidebar {
+	max-width: 30vw;
+	flex-basis: 400px;
+}
+
+/* TODO: DRY button styling with .Toolbox-tool */
+
+.toolbar-button {
+	display: inline-flex;
+	align-items: center;
+	background: none;
+	border: none;
+	padding: 8px;
+	border-radius: 50%;
+}
+.toolbar-button:hover,
+.toolbar-button:focus {
+	background: rgba(128, 128, 128, 0.4);
+}
+
+.toolbar-button:hover:not([aria-checked]),
+.toolbar-button:focus:not([aria-checked]) {
+	background: #cbdbfc;
+	color: black;
+	outline: none;
+}
+.toolbar-button:active:not([aria-checked]) {
+	background: rgb(214, 228, 255);
+	color: black;
+}
+.toolbar-button[aria-checked] {
+	background: #639bff;
+	color: white;
+}
+
+#documents-options {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 15px;
+}
+#documents-options > * {
+	flex: 0 0 auto;
+}
